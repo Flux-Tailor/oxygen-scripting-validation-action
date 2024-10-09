@@ -36,7 +36,7 @@ runs:
         mv ../report/validationReport.html ../report/validationReport_AGR.html
         ./gradlew runValidation -PvalidationDir=NGG -PlocalBuild=false --info --stacktrace --build-cache
         mv ../report/validationReport.html ../report/validationReport_NGG.html
-        ./gradlew runValidation -PvalidationDir=rate-plan-test-cases -PlocalBuild=false --info --stacktrace --build-cache
+        ./gradlew runValidation -PvalidationDir=. -PlocalBuild=false --info --stacktrace --build-cache
         mv ../report/validationReport.html ../report/validationReport_All.html
       shell: bash
 
