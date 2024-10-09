@@ -30,8 +30,8 @@ runs:
     - name: Build with Gradle
       run: |
         cd scripting/build
+        ./gradlew runValidation -h
         ./gradlew runValidation -PvalidationDir=CEI -PlocalBuild=false --info --stacktrace --build-cache
-        find . 
         mv ../report/validationReport.html ../report/validationReport_CEI.html
         ./gradlew runValidation -PvalidationDir=AGR -PlocalBuild=false --info --stacktrace --build-cache
         mv ../report/validationReport.html ../report/validationReport_AGR.html
