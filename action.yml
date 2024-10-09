@@ -28,7 +28,14 @@ runs:
       shell: bash
 
     - name: Build with Gradle
-      run: cd scripting/build; ./gradlew runValidation -PvalidationDir=${{ inputs.validationDir }} -PlocalBuild=false --info --stacktrace --build-cache
+      run: |
+        cd scripting/build
+        ./gradlew runValidation -PvalidationDir=CEI -PlocalBuild=false --info --stacktrace --build-cache
+        mv scripting/report/validationReport.html scripting/report/validationReport_CEI.html
+        ./gradlew runValidation -PvalidationDir=AGR -PlocalBuild=false --info --stacktrace --build-cache
+        mv scripting/report/validationReport.html scripting/report/validationReport_AGR.html
+        ./gradlew runValidation -PvalidationDir=NGG -PlocalBuild=false --info --stacktrace --build-cache
+        mv scripting/report/validationReport.html scripting/report/validationReport_NGG.html
       shell: bash
 
     - name: Deploy
