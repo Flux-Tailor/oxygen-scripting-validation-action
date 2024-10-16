@@ -30,7 +30,7 @@ runs:
     - name: Build with Gradle & check Validation
       run: |
         cd scripting/build
-        
+
         validate_and_check() {
           ./gradlew runValidation -PvalidationDir=$1 -PlocalBuild=false --info --stacktrace --build-cache
           if [ $? -ne 0 ]; then
@@ -39,7 +39,6 @@ runs:
           fi
           mv ../report/validationReport.html ../report/validationReport_$1.html
         }
-        
         validate_and_check "CEI"
         validate_and_check "AGR"
         validate_and_check "NGG"
